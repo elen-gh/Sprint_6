@@ -3,7 +3,7 @@
 выполнен на Python с использованием библиотеки Pytest и фреймворка Selenium
 
 ## Структура проекта:
-* `allure-results/` — отчеты allure
+* `allure-report/` — отчеты allure
 * `locators/` — локаторы
 * `pages/` — страницы и экраны
 * `tests/` — тестовые модули
