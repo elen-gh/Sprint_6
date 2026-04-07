@@ -21,6 +21,7 @@ class OrderData:
         "color": "чёрный жемчуг",
         "comment": "Оставить у двери"
     }
+expected_url_part = "dzen.ru"
 
 class FaqInfo:
 

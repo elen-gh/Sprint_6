@@ -1,5 +1,4 @@
 from pages.base_page import BasePage 
-from selenium.webdriver.common.by import By
 from allure import step
 from locators.order_person_info_page_locators import OrderPersonInfoPageLocators
 
@@ -20,8 +19,7 @@ class OrderPersonInfoPage(BasePage):
 
         with step(f"Enter station: {station}"):
             self.click_nativ_element(OrderPersonInfoPageLocators.STATION_FIELD)
-            station_locator = (By.XPATH, f"//div[@class='Order_Text__2broi' and text()='{station}']")
-            self.click_nativ_element(station_locator)
+            self.click_nativ_element(OrderPersonInfoPageLocators.STATION_BY_NAME(station))
 
         with step(f"Enter phone: {phone}"):
             self.enter_text(OrderPersonInfoPageLocators.PHONE_FIELD, phone)

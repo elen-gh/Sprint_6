@@ -9,8 +9,11 @@ class OrderSuccessPage(BasePage):
 
     @step("Click ORDER_STATUS_BUTTON")
     def order_status_button_click(self):
+        self.find_element(OrderSuccessPageLocators.ORDER_STATUS_BUTTON)
+        self.wait_for_text_to_be_present(OrderSuccessPageLocators.ORDER_STATUS_BUTTON, "Посмотреть статус")
         self.click_element(OrderSuccessPageLocators.ORDER_STATUS_BUTTON)
 
     def order_status_button_visible(self):
         element = self.wait_for_element_visible(OrderSuccessPageLocators.ORDER_STATUS_BUTTON)
         return element
+    

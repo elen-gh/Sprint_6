@@ -1,5 +1,4 @@
 from pages.base_page import BasePage 
-from selenium.webdriver.common.by import By
 from allure import step
 from locators.order_rent_info_page_locators import OrderRentInfoPageLocators
 from selenium.webdriver.common.keys import Keys
@@ -17,11 +16,10 @@ class OrderRentInfoPage(BasePage):
             
         with step(f"Enter period: {period}"):
             self.click_nativ_element(OrderRentInfoPageLocators.PERIOD_FIELD)
-            period_locator = By.XPATH, f"//div[@class='Dropdown-option' and text()='{period}']"
-            self.click_nativ_element(period_locator)
+            self.click_nativ_element(OrderRentInfoPageLocators.CHOSEN_PERIOD(period))
 
         with step(f"Select color: {color}"):
-            if color: self.click_nativ_element((By.XPATH, f"//label"))
+            if color: self.click_nativ_element((OrderRentInfoPageLocators.COLOR_CHECKBOX(color)))
 
         with step(f"Enter comment: {comment}"):
             self.enter_text(OrderRentInfoPageLocators.COMMENT_FIELD, comment)

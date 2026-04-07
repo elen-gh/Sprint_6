@@ -4,10 +4,9 @@ from pages.order_rent_info_page import OrderRentInfoPage
 from pages.order_confirmation_page import OrderConfirmationPage
 from pages.order_success_page import OrderSuccessPage
 from pages.order_status_page import OrderStatusPage
-from src.data import OrderData
+from src.data import OrderData, expected_url_part
 import pytest
 import allure
-import time
 
 class TestOrderFlow:
 
@@ -35,14 +34,13 @@ class TestOrderFlow:
         order_success_page = OrderSuccessPage(driver)
         assert order_success_page.order_status_button_visible()
 
-        time.sleep(1)
         order_success_page.order_status_button_click()
         order_status_page = OrderStatusPage(driver)
         order_status_page.click_scooter_logo()
         assert main_page.order_middle_button_visible()
 
         main_page.click_yandex_logo()
-        current_url = main_page.wait_for_new_window_and_check_url("dzen.ru")
+        current_url = main_page.wait_for_new_window_and_check_url(expected_url_part)
         assert "dzen.ru" in current_url
         
 

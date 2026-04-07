@@ -25,9 +25,9 @@ class MainPage(BasePage):
         self.click_element(BasePageLocators.LOGO_YANDEX_BUTTON)
 
     def wait_for_new_window_and_check_url(self, expected_url_part):
-        self.driver.switch_to.window(self.driver.window_handles[-1])
-        self.wait_for_url_contains("dzen.ru")
-        return self.driver.current_url
+        self.switch_to_last_window()
+        self.wait_for_url_contains(expected_url_part)
+        return self.get_current_url()
 
     @step("Click FAQ_BUTTON_0")
     def faq_button_0_click(self):
